@@ -1,0 +1,10 @@
+.item-container{
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #a3cbec;
+    border-radius: 0.5rem;
+}
+
+.item-container h2{
+    margin-top: 0.4rem;
+}

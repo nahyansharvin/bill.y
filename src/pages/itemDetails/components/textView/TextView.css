@@ -1,0 +1,16 @@
+.item-view{
+    width: 100%;
+}
+
+.item-label{
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgb(58, 58, 58);
+}
+
+.item-value{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(21, 11, 46);
+    border-bottom: 0.2px solid rgb(180, 180, 180);
+}
