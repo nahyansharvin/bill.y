@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./ClientDetails.css"
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 //Custom components
 import TextInput from '../../components/textInput/TextInput';
