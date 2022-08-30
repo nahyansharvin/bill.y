@@ -31,7 +31,6 @@ function AddItem() {
 
     //Set error in empty fields
     function errorSetter() {
-        console.log("errorSetter")
         if (!itemName) setItemName(" ");
         if (!NOofBoxes) setNOofBoxes(" ");
         if (!kgPerBox) setKgPerBox(" "); 
@@ -40,11 +39,11 @@ function AddItem() {
 
     //Add Button handler
     const AddButtonHandler = () => {
-        if ((!itemName || !NOofBoxes || !kgPerBox || (!amtPerBoxINR && !amtPerBoxUSD))||(itemName === " ")) {
+        if ((!itemName || !NOofBoxes || !kgPerBox || (!amtPerBoxINR && !amtPerBoxUSD))||(itemName === " " || NOofBoxes === " " || kgPerBox === " ")) {
             errorSetter();
             return;
         } else {
-            let AmountINR = amtPerBoxINR.toFixed(2);
+            let AmountINR = amtPerBoxINR.toFixed(1);
             let AmountUSD = amtPerBoxUSD.toFixed(2);
             let TotalWeight = NOofBoxes * kgPerBox;
             let TotalINR = (NOofBoxes * amtPerBoxINR).toFixed(2);
