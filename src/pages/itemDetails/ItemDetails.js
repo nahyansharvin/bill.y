@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './ItemDetails.css'
 
 //Custom Components
@@ -17,6 +17,7 @@ import ClientContext from "../../ClientContext";
 
 function ItemDetails() {
     const { items, setItems } = useContext(ClientContext);
+    const navigate = useNavigate();
 
     //Delete Button handler
     function handleDelete(index) {
@@ -28,7 +29,7 @@ function ItemDetails() {
     return (
         <div className='item-details-wrapper section-margin'>
             <div className='button-wrapper'>
-                <Button variant="text" startIcon={<ArrowBackIosIcon />} sx={{ color: "#121212", fontWeight: "bold" }} >Back</Button>
+                <Button variant="text" startIcon={<ArrowBackIosIcon />} sx={{ color: "#121212", fontWeight: "bold" }} onClick={()=>navigate("/")} >Back</Button>
 
                 <Button size="large"  variant="contained" endIcon={<PrintIcon />} sx={{ letterSpacing:"2px" }} >Print</Button>
             </div>
