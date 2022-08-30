@@ -34,7 +34,9 @@ function ClientDetails() {
 
     const handleNextButton = () => {
         if (!invoiceNo || !invoiceDate || !companyName || !companyAddress) {
-            alert("Please fill all the fields");
+            setInvoiceNo(" ");
+            setCompanyName(" ");
+            setCompanyAddress(" ");
             return;
         }else{
             setClientDetails({ invoiceNo, invoiceDate : getDate(invoiceDate), companyName, companyAddress, oldBalance : oldBalance ? oldBalance : 0 });
