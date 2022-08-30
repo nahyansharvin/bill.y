@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import "./ClientDetails.css"
 import { useNavigate } from 'react-router-dom'
 
@@ -11,8 +11,13 @@ import { TextField, Button, Grid } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import ClientContext from "../../ClientContext";
+
+
+
 
 function ClientDetails() {
+    const { clientDetails, setClientDetails } = useContext(ClientContext);
     const navigate = useNavigate();
     //States 
     const [invoiceNo, setInvoiceNo] = useState();
@@ -27,9 +32,14 @@ function ClientDetails() {
         return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     };
 
-    //   console.log(getDate(invoiceDate));
     const handleNextButton = () => {
-        navigate('/items');
+        if (!invoiceNo || !invoiceDate || !companyName || !companyAddress) {
+            alert("Please fill all the fields");
+            return;
+        }else{
+            setClientDetails({ invoiceNo, invoiceDate : getDate(invoiceDate), companyName, companyAddress, oldBalance : oldBalance ? oldBalance : 0 });
+            navigate('/items');
+        }
     }
 
     return (
