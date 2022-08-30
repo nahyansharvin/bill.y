@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 //Custom Components
@@ -9,9 +9,12 @@ import ViewItem from './components/viewItem/ViewItem'
 import { Button } from '@mui/material'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
+//Context
+import ClientContext from "../../ClientContext";
+
 
 function ItemDetails() {
-    const [items, setItems] = useState([]);
+    const { items, setItems } = useContext(ClientContext);
 
     //Delete Button handler
     function handleDelete(index) {
@@ -29,7 +32,7 @@ function ItemDetails() {
 
             {/* List Items */}
             {
-                items.map((item, index) => {<ViewItem key={index} item={item} index={index} handleDelete={handleDelete} />})
+                items.map((item, index) => <ViewItem key={index} item={item} index={index} handleDelete={handleDelete} />)
             }
 
             <AddItem items={items} setItems={setItems} />
