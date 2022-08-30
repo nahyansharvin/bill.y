@@ -44,7 +44,7 @@ function ViewItem(props) {
                 </Grid>
 
                 <Grid item xs={12} sm={12}>
-                    <Button fullWidth variant="contained" color="primary" endIcon={<DeleteIcon />} onClick={() => handleDelete(index)} >Delete Item</Button>
+                    <Button fullWidth variant="contained" color="error" endIcon={<DeleteIcon />} onClick={() => handleDelete(index)} >Delete Item</Button>
                 </Grid>
 
             </Grid>

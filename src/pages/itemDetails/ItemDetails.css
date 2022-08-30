@@ -1,0 +1,8 @@
+.item-details-wrapper{
+    margin-top: 4rem;
+}
+
+.button-wrapper{
+    display: flex;
+    justify-content: space-between;
+}

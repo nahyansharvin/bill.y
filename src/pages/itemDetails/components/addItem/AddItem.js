@@ -22,19 +22,18 @@ function AddItem() {
 
     //Currency Converter0
     useEffect(() => {
-        let Amount = Number(amtPerBoxINR)
-        setAmtPerBoxUSD(Amount / 60)
+        setAmtPerBoxUSD(amtPerBoxINR / 80)
     }, [amtPerBoxINR]);
 
     useEffect(() => {
-        setAmtPerBoxINR(amtPerBoxUSD * 60)
+        setAmtPerBoxINR(amtPerBoxUSD * 80)
     }, [amtPerBoxUSD])
 
     //Set error in empty fields
     function errorSetter() {
-        setItemName(!itemName && "");
-        setNOofBoxes(!NOofBoxes && "");
-        setKgPerBox(!kgPerBox && "");
+        if (!itemName) setItemName("");
+        if (!NOofBoxes) setNOofBoxes("");
+        if (!kgPerBox) setKgPerBox(""); 
         if (!amtPerBoxINR && !amtPerBoxUSD) alert("Please enter amount per box");
     }
 
@@ -44,11 +43,12 @@ function AddItem() {
             errorSetter();
             return;
         } else {
-
+            let AmountINR = amtPerBoxINR.toFixed(2);
+            let AmountUSD = amtPerBoxUSD.toFixed(2);
             let TotalWeight = NOofBoxes * kgPerBox;
             let TotalINR = NOofBoxes * amtPerBoxINR;
             let TotalUSD = NOofBoxes * amtPerBoxUSD;
-            setItems([...items, { itemName, NOofBoxes, kgPerBox, amtPerBoxINR, amtPerBoxUSD, TotalWeight, TotalINR, TotalUSD }]);
+            setItems([...items, { itemName, NOofBoxes, kgPerBox, amtPerBoxINR: AmountINR, amtPerBoxUSD: AmountUSD, TotalWeight, TotalINR, TotalUSD }]);
         }
 
     }

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import './ItemDetails.css'
 
 //Custom Components
 import AddItem from './components/addItem/AddItem'
@@ -8,6 +9,7 @@ import ViewItem from './components/viewItem/ViewItem'
 //Material UI
 import { Button } from '@mui/material'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import PrintIcon from '@mui/icons-material/Print';
 
 //Context
 import ClientContext from "../../ClientContext";
@@ -25,17 +27,22 @@ function ItemDetails() {
 
     return (
         <div className='item-details-wrapper section-margin'>
-            <Link to='/'>
+            <div className='button-wrapper'>
                 <Button variant="text" startIcon={<ArrowBackIosIcon />} sx={{ color: "#121212", fontWeight: "bold" }} >Back</Button>
-            </Link>
-            <h3>Item Details</h3>
 
-            {/* List Items */}
+                <Button size="large"  variant="contained" endIcon={<PrintIcon />} sx={{ letterSpacing:"2px" }} >Print</Button>
+            </div>
+            
+            <h3>Items</h3>
+
+        {/* List Items */}
             {
                 items.map((item, index) => <ViewItem key={index} item={item} index={index} handleDelete={handleDelete} />)
             }
 
             <AddItem items={items} setItems={setItems} />
+
+
         </div>
     )
 }

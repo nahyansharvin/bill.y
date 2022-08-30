@@ -1,7 +1,7 @@
 .item-container{
     padding: 1rem;
     margin: 1rem 0;
-    background-color: #a3cbec;
+    background-color: var(--secondary-color);
     border-radius: 0.5rem;
 }
 

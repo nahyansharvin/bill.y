@@ -1,5 +1,5 @@
 .add-item-wrapper{
-    background-color: rgba(204, 207, 207, 0.29);
+    background-color: var(--tertiary-color);
     padding: 1rem;
     border-radius: 0.5rem;
     margin: 1rem 0;
