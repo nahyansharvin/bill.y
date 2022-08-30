@@ -2,7 +2,7 @@ import React from 'react'
 import { TextField } from '@mui/material'
 
 function TextInput(props) {
-    const {multiline,type,label,value,setValue,disabled} = props;
+    const {multiline,type,label,value,setValue} = props;
 
     const handleChange = (e) => setValue(e.target.value);
 
@@ -11,7 +11,6 @@ function TextInput(props) {
         <TextField
             fullWidth
             multiline={multiline}
-            disabled={disabled}
             required
             id='outlined-basic'
             variant='outlined'
