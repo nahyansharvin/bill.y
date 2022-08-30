@@ -35,14 +35,14 @@ function ItemDetails() {
             
             <h3>Items</h3>
 
-        {/* List Items */}
+            <div className='items-list'>
+            {/* List Items */}
             {
                 items.map((item, index) => <ViewItem key={index} item={item} index={index} handleDelete={handleDelete} />)
             }
 
             <AddItem items={items} setItems={setItems} />
-
-
+            </div>
         </div>
     )
 }
