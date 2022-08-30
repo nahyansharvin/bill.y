@@ -17,10 +17,10 @@ function TextInput(props) {
             margin="none"
             type={type}
             label={label}
-            error={value === "" ? true : false}
             value={value}
             onChange={handleChange}
-            helperText={value === "" ? `${label} cannot be empty` : null}
+            error={value === " " ? true : false}
+            helperText={value === " " ? `${label} cannot be empty` : null}
         />
     )
 }

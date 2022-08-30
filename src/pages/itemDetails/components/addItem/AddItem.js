@@ -31,24 +31,30 @@ function AddItem() {
 
     //Set error in empty fields
     function errorSetter() {
-        if (!itemName) setItemName("");
-        if (!NOofBoxes) setNOofBoxes("");
-        if (!kgPerBox) setKgPerBox(""); 
+        console.log("errorSetter")
+        if (!itemName) setItemName(" ");
+        if (!NOofBoxes) setNOofBoxes(" ");
+        if (!kgPerBox) setKgPerBox(" "); 
         if (!amtPerBoxINR && !amtPerBoxUSD) alert("Please enter amount per box");
     }
 
     //Add Button handler
     const AddButtonHandler = () => {
-        if (!itemName || !NOofBoxes || !kgPerBox || (!amtPerBoxINR && !amtPerBoxUSD)) {
+        if ((!itemName || !NOofBoxes || !kgPerBox || (!amtPerBoxINR && !amtPerBoxUSD))||(itemName === " ")) {
             errorSetter();
             return;
         } else {
             let AmountINR = amtPerBoxINR.toFixed(2);
             let AmountUSD = amtPerBoxUSD.toFixed(2);
             let TotalWeight = NOofBoxes * kgPerBox;
-            let TotalINR = NOofBoxes * amtPerBoxINR;
-            let TotalUSD = NOofBoxes * amtPerBoxUSD;
+            let TotalINR = (NOofBoxes * amtPerBoxINR).toFixed(2);
+            let TotalUSD = (NOofBoxes * amtPerBoxUSD).toFixed(2);
             setItems([...items, { itemName, NOofBoxes, kgPerBox, amtPerBoxINR: AmountINR, amtPerBoxUSD: AmountUSD, TotalWeight, TotalINR, TotalUSD }]);
+            setItemName("");
+            setNOofBoxes("");
+            setKgPerBox("");
+            setAmtPerBoxINR("");
+            setAmtPerBoxUSD("");
         }
 
     }

@@ -48,7 +48,7 @@ function ClientDetails() {
             <div className='client-details-form'>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <TextInput type='Number' label="Invoice Number" value={invoiceNo} setValue={setInvoiceNo} />
+                        <TextInput label="Invoice Number" value={invoiceNo} setValue={setInvoiceNo} />
                     </Grid>
                     <Grid item xs={12}>
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
