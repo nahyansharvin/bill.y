@@ -10,5 +10,5 @@
 .items-list{
     border-radius: 0.5rem;
     max-height: calc(100vh - 9.4rem);
-    overflow: scroll;
+    overflow-y: scroll;
 }

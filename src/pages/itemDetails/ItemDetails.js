@@ -16,7 +16,7 @@ import ClientContext from "../../ClientContext";
 
 
 function ItemDetails() {
-    const { items, setItems } = useContext(ClientContext);
+    const { items, setItems, clientDetails } = useContext(ClientContext);
     const navigate = useNavigate();
 
     //Delete Button handler
@@ -31,7 +31,7 @@ function ItemDetails() {
             <div className='button-wrapper'>
                 <Button variant="text" startIcon={<ArrowBackIosIcon />} sx={{ color: "#121212", fontWeight: "bold" }} onClick={()=>navigate("/")} >Back</Button>
 
-                <Button size="large"  variant="contained" endIcon={<PrintIcon />} sx={{ letterSpacing:"2px" }} >Print</Button>
+                <Button size="large"  variant="contained" endIcon={<PrintIcon />} sx={{ letterSpacing:"2px" }} onClick={()=>(console.log(clientDetails, items))} >Print</Button>
             </div>
             
             <h3>Items</h3>

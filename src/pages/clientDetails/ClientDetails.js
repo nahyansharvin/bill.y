@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import "./ClientDetails.css"
 import { useNavigate } from 'react-router-dom'
 
@@ -32,14 +32,29 @@ function ClientDetails() {
         return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     };
 
+    //To set the current values in the form
+    const setCurrentValues = (details) => {
+        if(!details) return;
+        setInvoiceNo(details.invoiceNo);
+        setInvoiceDate(invoiceDate);
+        setCompanyName(details.companyName);
+        setCompanyAddress(details.companyAddress);
+        setOldBalance(details.oldBalance);
+    }
+    useEffect(() => {
+        setCurrentValues(clientDetails);
+    }, [clientDetails])
+
     const handleNextButton = () => {
         if (!invoiceNo || !invoiceDate || !companyName || !companyAddress) {
-            setInvoiceNo(" ");
-            setCompanyName(" ");
-            setCompanyAddress(" ");
+            if (!invoiceNo) setInvoiceNo(" ");
+            if (!companyName) setCompanyName(" ");
+            if (!companyAddress) setCompanyAddress(" ");
+            console.log("error adich")
             return;
         }else{
             setClientDetails({ invoiceNo, invoiceDate : getDate(invoiceDate), companyName, companyAddress, oldBalance : oldBalance ? oldBalance : 0 });
+            console.log(clientDetails)
             navigate('/items');
         }
     }
