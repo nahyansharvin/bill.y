@@ -72,6 +72,7 @@ function ClientDetails() {
                             <DatePicker
                                 label="Invoice Date"
                                 value={invoiceDate}
+                                inputFormat="dd/MM/yyyy"
                                 onChange={(newValue) => {
                                     setInvoiceDate(newValue);
                                 }}
