@@ -50,11 +50,9 @@ function ClientDetails() {
             if (!invoiceNo) setInvoiceNo(" ");
             if (!companyName) setCompanyName(" ");
             if (!companyAddress) setCompanyAddress(" ");
-            console.log("error adich")
             return;
         }else{
             setClientDetails({ invoiceNo, invoiceDate : getDate(invoiceDate), companyName, companyAddress, oldBalance : oldBalance ? oldBalance : 0 });
-            console.log(clientDetails)
             navigate('/items');
         }
     }
